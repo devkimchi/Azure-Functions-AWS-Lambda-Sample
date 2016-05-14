@@ -9,6 +9,9 @@ let https = require('https');
  * Will succeed with the response body.
  */
 exports.handler = (event, context, callback) => {
+    // Checks the event details
+    console.log(JSON.stringify(event, null, 2));
+    
     // Sets request options
     var options = {
         host: 'hooks.slack.com',
@@ -22,7 +25,7 @@ exports.handler = (event, context, callback) => {
 
     // Sets the request body    
     var data = {
-        "text": "Hello World from AWS Lambda!"
+        "text": "New push has come up by " + event.head_commit.author.name + " with commit Id of " + event.head_commit.id
     };
 
     const req = https.request(options, (res) => {
