@@ -19,7 +19,7 @@ module.exports = function(context, req) {
 
         // Sets the request body    
         var data = {
-            "text": "New push has come up by " + req.body.head_commit.author.name + " with commit Id of " + req.body.head_commit.id
+            "text": "New push has come up\n* author: " + req.body.head_commit.author.name + "\n* commit Id: " + req.body.head_commit.id
         };
 
         const request = https.request(options, (res) => {
