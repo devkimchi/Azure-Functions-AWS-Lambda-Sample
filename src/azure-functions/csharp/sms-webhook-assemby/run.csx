@@ -26,7 +26,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
     
     using (var service = new SmsService())
     {
-        var response = await service.SendMessageAsync(request);
+        var response = await service.SendMessageAsync(request).ConfigureAwait(false);
         
         var serialsed = JsonConvert.SerializeObject(response);
         log.Info(serialsed);
