@@ -1,5 +1,1 @@
-This is test message.
 
-This is another message.
-
-This is the third message.
